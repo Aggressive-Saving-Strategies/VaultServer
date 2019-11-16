@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <script>
+      let frame1, frame2;
+
+      function switchToOne() {
+        frame1.style.display = 'initial';
+        frame2.style.display = 'none';
+
+        console.log('Woop 1');
+
+        frame2.src = 'https://hs.fi';
+        setTimeout(switchToTwo, 5000);
+      }
+
+      function switchToTwo() {
+        frame1.style.display = 'none';
+        frame2.style.display = 'initial';
+
+        console.log('Woop 2');
+
+        frame1.src = 'https://hs.fi';
+        setTimeout(switchToOne, 5000);
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        frame1 = document.getElementById('frame1');
+        frame2 = document.getElementById('frame2');
+
+        frame2.addEventListener('load', function(e) { console.log(e); })
+
+        switchToTwo();
+      });
+    </script>
+  </head>
+  <body>
+    <iframe id="frame1" framemargin="0" width="500" height="1000" src="https://hs.fi""></iframe>
+    <iframe id="frame2" style="display: none;" src="https://hs.fi""></iframe>
+  </body>
+</html>
