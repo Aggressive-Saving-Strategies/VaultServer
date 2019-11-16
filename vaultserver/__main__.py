@@ -12,6 +12,8 @@ def lose():
     return api.move(consts.primary_account, consts.savings_account, lost)
 
 @bottle.post('/account/win')
-def lose():
+def win():
     won = bottle.request.json['amount']
     return api.move(consts.savings_account, consts.primary_account, won)
+
+bottle.run(debug=True, reloader=True, port=8080, host='0.0.0.0')
