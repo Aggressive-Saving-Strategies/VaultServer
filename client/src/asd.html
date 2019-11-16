@@ -1,15 +1,22 @@
 <html>
   <head>
     <script>
-      let frame1, frame2;
+      let frame1, frame2, body;
 
       function switchToOne() {
-        frame1.style.display = 'initial';
         frame2.style.display = 'none';
+        frame1.style.display = 'initial';
+        frame2.remove()
 
         console.log('Woop 1');
 
+        frame2 = document.createElement('iframe');
+
+        frame2.style.display = 'none'
         frame2.src = 'https://hs.fi';
+
+        body.appendChild(frame2);
+
         setTimeout(switchToTwo, 5000);
       }
 
@@ -19,21 +26,27 @@
 
         console.log('Woop 2');
 
+        frame1.remove()
+        frame1 = document.createElement('iframe');
+
+        frame1.style.display = 'none'
         frame1.src = 'https://hs.fi';
+
+        body.appendChild(frame1);
+
         setTimeout(switchToOne, 5000);
       }
 
       document.addEventListener('DOMContentLoaded', function() {
         frame1 = document.getElementById('frame1');
         frame2 = document.getElementById('frame2');
-
-        frame2.addEventListener('load', function(e) { console.log(e); })
+        body = document.getElementById('body');
 
         switchToTwo();
       });
     </script>
   </head>
-  <body>
+  <body id="body">
     <iframe id="frame1" framemargin="0" width="500" height="1000" src="https://hs.fi""></iframe>
     <iframe id="frame2" style="display: none;" src="https://hs.fi""></iframe>
   </body>
