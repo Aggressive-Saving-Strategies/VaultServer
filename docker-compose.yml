@@ -1,0 +1,8 @@
+version: '3'
+services:
+  vault:
+    container_name: vault
+    build:
+      context: .
+    ports:
+      - '8080:8080'
