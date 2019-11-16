@@ -14,9 +14,13 @@
 
         frame2.style.display = 'none'
         frame2.src = 'https://developers.danskebank.com/dashboard/customer/f539af5b-0a51-4d12-beae-5bba67ce1408';
-        frame2.frameborder="0";
-        frame2.width="1000";
-        frame2.height="500";
+        frame2.allowFullscreen = true;
+        frame2.style.top = 0;
+        frame2.style.left = 0;
+        frame2.style.bottom = 0;
+        frame2.style.right = 0;
+        frame2.style.width = '100vw';
+        frame2.style.height = '100vh';
 
         body.appendChild(frame2);
 
@@ -34,9 +38,13 @@
 
         frame1.style.display = 'none'
         frame1.src = 'https://developers.danskebank.com/dashboard/customer/f539af5b-0a51-4d12-beae-5bba67ce1408';
-        frame1.frameborder="0";
-        frame1.width="1000";
-        frame1.height="500";
+        frame1.allowFullscreen = true;
+        frame1.style.top = 0;
+        frame1.style.left = 0;
+        frame1.style.bottom = 0;
+        frame1.style.right = 0;
+        frame2.style.width = '100vw';
+        frame2.style.height = '100vh';
 
         body.appendChild(frame1);
 
@@ -48,12 +56,26 @@
         frame2 = document.getElementById('frame2');
         body = document.getElementById('body');
 
+        frame1.style.top = 0;
+        frame1.style.left = 0;
+        frame1.style.bottom = 0;
+        frame1.style.right = 0;
+        frame2.style.width = '100vw';
+        frame2.style.height = '100vh';
+
+        frame2.style.top = 0;
+        frame2.style.left = 0;
+        frame2.style.bottom = 0;
+        frame2.style.right = 0;
+        frame2.style.width = '100vw';
+        frame2.style.height = '100vh';
+
         switchToTwo();
       });
     </script>
   </head>
-  <body id="body">
-    <iframe id="frame1" frameborder="0" width="1000" height="500" src="https://developers.danskebank.com/dashboard/customer/f539af5b-0a51-4d12-beae-5bba67ce1408""></iframe>
-    <iframe id="frame2" frameborder="0" width="1000" height="500" style="display: none;" src="https://developers.danskebank.com/dashboard/customer/f539af5b-0a51-4d12-beae-5bba67ce1408""></iframe>
+  <body id="body" style="margin: 0;">
+    <iframe id="frame1" allowfullscreen src="https://developers.danskebank.com/dashboard/customer/f539af5b-0a51-4d12-beae-5bba67ce1408""></iframe>
+    <iframe id="frame2" allowfullscreen style="display: none;" src="https://developers.danskebank.com/dashboard/customer/f539af5b-0a51-4d12-beae-5bba67ce1408""></iframe>
   </body>
 </html>
