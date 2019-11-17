@@ -9,7 +9,8 @@ def credits():
 
 @bottle.post('/account/lose')
 def lose():
-    lost = bottle.request.json['amount']
+    body = bottle.request.body.read().decode()
+    lost = float(body.split('=')[1]) / 100
     amount = lost
     PLAYGROUND_ID = "02adf7f0-1a1a-4865-9197-7712c1839e80"
 
@@ -55,10 +56,10 @@ def lose():
 
 @bottle.post('/account/win')
 def win():
-    won = bottle.request.json['amount']
-    
+    body = bottle.request.body.read().decode()
+    won = float(body.split('=')[1]) / 100
     amount = won
-    
+
     PLAYGROUND_ID = "02adf7f0-1a1a-4865-9197-7712c1839e80"
 
     #This works only for Bergen, the customer and merchant id's are his
@@ -101,4 +102,4 @@ def win():
     PARAMS = {"template":"debit", "amount":amount}
     r = requests.post(url=URL, headers=HEADERS, data=PARAMS)
 
-bottle.run(debug=True, reloader=True, port=8080, host='0.0.0.0')
+bottle.run(debug=True, reloader=True, port=8000, host='0.0.0.0')
